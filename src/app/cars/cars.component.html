@@ -1,4 +1,4 @@
-<button [disabled] ="!canAddCar" class="btn btn-primary" (click)="addCar()">Добавить</button>
+<button [disabled] ="!canAddCar" class="btn btn-primary" (click)="addCar()">Добавить в список</button>
 <p>{{ addCarStatus }}</p>
 <p *ngIf="!addCarSelect; else success">НЕ добавлено через IF</p>
 <ng-template #success>
