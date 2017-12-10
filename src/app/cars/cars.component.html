@@ -1,0 +1,33 @@
+<button [disabled] ="!canAddCar" class="btn btn-primary" (click)="addCar()">Добавить</button>
+<p>{{ addCarStatus }}</p>
+<p *ngIf="!addCarSelect; else success">НЕ добавлено через IF</p>
+<ng-template #success>
+  <p>Добавлено через IF</p>
+</ng-template>
+<hr>
+
+<ul>
+  <li *ngFor="let car of cars; let idx = index">
+  <div
+    [ngStyle] ="{'background-color': (idx + 1) % 2 === 0 ? '#d0a068' : '#99d08c', 'color':'white' }"
+    [ngClass] ="{'big-size': setClass(car)}"
+  >
+    <b>{{ idx + 1}}</b> - {{ car }}
+  </div>
+  </li>
+</ul>
+
+<ul>
+  <li *ngFor="let date of dates; let idx = index">
+    <b>{{ idx + 1}}</b> - {{ date | uppercase }}
+  </li>
+</ul>
+
+<app-car></app-car>
+
+
+<hr>
+<input type="text" class="form-control" (keyup.enter)="onKeyUp($event)">
+<hr>
+<input type="text" class="form-control" [(ngModel)] ="inputText">
+<p>{{ inputText }}</p>
